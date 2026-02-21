@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 
 import portraitImg from "@/assets/images/artist-portrait.png";
-import bgImg from "@/assets/images/hero-bg.png";
+import bgImg from "@/assets/images/Hero.jpeg";
 
 export default function LinkInBio() {
   const links = [

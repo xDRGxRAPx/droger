@@ -4,9 +4,9 @@ import MobileNav from "@/components/layout/MobileNav";
 import { ArrowRight, ExternalLink, Instagram, Youtube, Mail, Phone, MapPin, Building2, Users, Radio, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import heroImg from "@/assets/images/hero-bg.png";
+import heroImg from "@/assets/images/Hero.jpeg";
 import portraitImg from "@/assets/images/artist-portrait.png";
-import studioImg from "@/assets/images/studio-setup.png";
+import studioImg from "@/assets/images/studio.jpeg";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -109,12 +109,12 @@ export default function Home() {
               className="relative"
               {...fadeInUp}
             >
-              <div className="aspect-[4/5] relative overflow-hidden group">
+              <div className="aspect-[4/5] relative overflow-hidden group border border-border/50">
                 <div className="absolute inset-0 bg-gradient-to-tr from-background via-transparent to-transparent z-10" />
                 <img 
                   src={portraitImg} 
                   alt="D Roger Portrait" 
-                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000"
+                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-primary/10 blur-3xl rounded-full -z-10" />

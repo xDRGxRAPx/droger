@@ -20,7 +20,7 @@ export default function LinkInBio() {
     { title: "Email Institucional", icon: Mail, url: "mailto:bboyrhoger@gmail.com", primary: false },
     { title: "Email Alternativo", icon: Mail, url: "mailto:realtraprn@gmail.com", primary: false },
     { title: "Instagram Oficial", icon: Instagram, url: "https://instagram.com/droger_oficial", primary: false },
-    { title: "Canal do YouTube", icon: Youtube, url: "#", primary: false },
+    { title: "Canal do YouTube", icon: Youtube, url: "https://youtube.com/@droger_oficial", primary: false },
   ];
 
   return (
@@ -102,7 +102,7 @@ export default function LinkInBio() {
           transition={{ duration: 0.5, delay: 1 }}
         >
           <span className="text-xl font-display font-bold tracking-widest opacity-20 uppercase">
-            Ordem Sul
+            Projeto Ordem Sul
           </span>
         </motion.div>
       </div>

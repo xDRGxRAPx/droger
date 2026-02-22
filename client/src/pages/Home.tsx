@@ -138,7 +138,7 @@ export default function Home() {
                   Como artista e produtor musical, acumula dezenas de apresentações ao vivo e participações em eventos de relevância, somando <strong className="text-foreground font-medium">mais de 100 mil streams</strong> acumulados em colaborações e produções originais.
                 </p>
                 <p>
-                  Sua visão estratégica culminou na formalização de sua ação cultural através do coletivo <strong className="text-foreground font-medium">Ordem Sul</strong>, estabelecendo um núcleo de impacto que une produção técnica, educação e desenvolvimento socioartístico para a juventude potiguar.
+                  Sua visão estratégica se consolida através da ação cultural com o projeto <strong className="text-foreground font-medium">Ordem Sul</strong>, atuando de forma integrada e estabelecendo um núcleo de impacto que une produção técnica, educação e desenvolvimento socioartístico para a juventude potiguar.
                 </p>
               </div>
             </motion.div>
@@ -166,7 +166,7 @@ export default function Home() {
               { value: "18+", label: "Anos de Atividade", desc: "Consistência e fomento da cultura hip hop potiguar." },
               { value: "100k+", label: "Streams", desc: "Acessos acumulados em colaborações e produções próprias." },
               { value: "Dezenas", label: "Performances", desc: "Forte presença de palco e conexão orgânica com o público." },
-              { value: "CNPJ", label: "Ação Formalizada", desc: "Impacto cultural estruturado através da Ordem Sul." }
+              { value: "Parceria", label: "Espaço Integrado", desc: "Ação cultural viabilizada em espaço parceiro com CNPJ ativo." }
             ].map((stat, i) => (
               <motion.div 
                 key={i} 
@@ -206,7 +206,7 @@ export default function Home() {
                   A iniciativa principal conta com um <strong>workshop de 40 horas</strong> dedicado a <strong>20 participantes</strong>, focando em técnicas de produção, beatmaking e fundamentos do mercado da música independente.
                 </p>
                 <p>
-                  A execução ocorre em formato <strong>híbrido</strong>: em parceria estratégica com um Espaço Cultural local (instituição formalizada e com CNPJ ativo), e etapas complementares realizadas na base de operações (Home Studio).
+                  A execução ocorre em formato <strong>híbrido</strong>: em parceria estratégica com um Espaço Cultural local, que possui CNPJ ativo e sedia o núcleo de produção musical sob responsabilidade de D ROGER, integrado às etapas realizadas em sua base de operações (Home Studio).
                 </p>
               </div>
 
@@ -215,7 +215,7 @@ export default function Home() {
                   <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
                     <Building2 className="w-5 h-5 text-primary" />
                   </div>
-                  <span>Parceria Institucional Formalizada (CNPJ Ativo)</span>
+                  <span>Integração com Espaço Cultural Parceiro (CNPJ Ativo)</span>
                 </li>
                 <li className="flex items-center gap-4 border border-border/50 p-4 bg-secondary/10">
                   <div className="w-10 h-10 bg-primary/10 flex items-center justify-center shrink-0">
@@ -309,7 +309,7 @@ export default function Home() {
                   Espaço Cultural
                 </h3>
                 <p className="text-muted-foreground font-light leading-relaxed">
-                  Extensão operacional em parceria com instituição formalizada (CNPJ ativo). Espaço dedicado para atividades coletivas, workshops de produção musical e impacto cultural direto na comunidade da Zona Sul.
+                  Espaço Cultural Parceiro (com CNPJ ativo) que sedia o núcleo de produção musical sob responsabilidade técnica e direção artística de D ROGER. Ambiente dedicado para integração do coletivo, workshops e impacto cultural direto na comunidade da Zona Sul.
                 </p>
               </div>
             </motion.div>
@@ -377,6 +377,16 @@ export default function Home() {
                   </div>
                 </a>
 
+                <a href="https://youtube.com/@droger_oficial" target="_blank" rel="noopener noreferrer" className="flex items-center group">
+                  <div className="w-12 h-12 rounded-full border border-border/50 bg-secondary/20 flex items-center justify-center mr-4 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
+                    <Youtube className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">YouTube Oficial</p>
+                    <p className="text-foreground font-medium group-hover:text-primary transition-colors">Acessar Canal</p>
+                  </div>
+                </a>
+
                 <div className="flex items-center group">
                   <div className="w-12 h-12 rounded-full border border-border/50 bg-secondary/20 flex items-center justify-center mr-4">
                     <MapPin className="w-5 h-5 text-muted-foreground" />
@@ -404,8 +414,8 @@ export default function Home() {
               </div>
               
               <div className="bg-secondary/30 border border-border/50 p-6 rounded-none mt-auto">
-                <h4 className="font-display font-bold uppercase tracking-widest text-sm mb-2 text-primary">Ordem Sul</h4>
-                <p className="text-sm text-muted-foreground font-light">Agência Cultural & Produtora Independente.</p>
+                <h4 className="font-display font-bold uppercase tracking-widest text-sm mb-2 text-primary">Projeto Ordem Sul</h4>
+                <p className="text-sm text-muted-foreground font-light">Coletivo de Fomento à Cultura Hip Hop & Produção Independente.</p>
               </div>
             </motion.div>
           </div>
@@ -413,7 +423,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-border/30 text-xs text-muted-foreground uppercase tracking-widest font-mono">
             <p>© {new Date().getFullYear()} D ROGER. Todos os direitos reservados.</p>
             <p className="mt-4 md:mt-0">
-              Produção Executiva: Ordem Sul
+              Direção Artística: D ROGER
             </p>
           </div>
         </div>

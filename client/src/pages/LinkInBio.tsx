@@ -9,8 +9,8 @@ import {
   Briefcase
 } from "lucide-react";
 
-import portraitImg from "@/assets/images/artist-portrait.png";
-import bgImg from "@/assets/images/Hero.jpeg";
+import portraitImg from "@/assets/images/artist-portrait.jpeg";
+import bgImg from "@/assets/images/Hero-bg.png";
 
 export default function LinkInBio() {
   const links = [

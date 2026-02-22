@@ -4,8 +4,8 @@ import MobileNav from "@/components/layout/MobileNav";
 import { ArrowRight, ExternalLink, Instagram, Youtube, Mail, Phone, MapPin, Building2, Users, Radio, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import heroImg from "@/assets/images/Hero.jpeg";
-import portraitImg from "@/assets/images/artist-portrait.png";
+import heroImg from "@/assets/images/Hero-bg.png";
+import portraitImg from "@/assets/images/artist-portrait.jpeg";
 import studioImg from "@/assets/images/studio.jpeg";
 
 const fadeInUp = {
@@ -67,6 +67,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Artista | Produtor Musical | Agente Cultural
+            <span className="block mt-2 text-sm text-white/50 tracking-[0.3em]">Nova Fase 2026</span>
           </motion.p>
           
           <motion.p 
@@ -162,20 +163,20 @@ export default function Home() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {[
-              { value: "18+", label: "Anos de Atividade", desc: "Consistência e dedicação à cultura urbana." },
-              { value: "100k+", label: "Streams", desc: "Acessos acumulados em produções e colaborações." },
-              { value: "Dezenas", label: "Performances Ao Vivo", desc: "Presença de palco e conexão com o público." },
-              { value: "1º", label: "Núcleo Formalizado", desc: "Ação cultural institucionalizada via Ordem Sul." }
+              { value: "18+", label: "Anos de Atividade", desc: "Consistência e fomento da cultura hip hop potiguar." },
+              { value: "100k+", label: "Streams", desc: "Acessos acumulados em colaborações e produções próprias." },
+              { value: "Dezenas", label: "Performances", desc: "Forte presença de palco e conexão orgânica com o público." },
+              { value: "CNPJ", label: "Ação Formalizada", desc: "Impacto cultural estruturado através da Ordem Sul." }
             ].map((stat, i) => (
               <motion.div 
                 key={i} 
                 variants={itemEffect}
-                className="p-8 border border-border/50 bg-background/50 hover:border-primary/50 transition-colors group"
+                className="p-8 border border-border/40 bg-background/40 backdrop-blur-sm hover:border-primary/60 hover:bg-card/60 transition-all duration-300 group rounded-xl"
               >
-                <h4 className="text-5xl font-display font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{stat.value}</h4>
-                <p className="text-sm text-foreground font-medium uppercase tracking-wider mb-3">{stat.label}</p>
-                <div className="w-8 h-px bg-border group-hover:bg-primary/50 mb-3 transition-colors" />
-                <p className="text-sm text-muted-foreground font-light">{stat.desc}</p>
+                <h4 className="text-5xl md:text-6xl font-display font-bold text-foreground mb-3 group-hover:text-primary transition-colors tracking-tighter">{stat.value}</h4>
+                <p className="text-sm text-foreground font-medium uppercase tracking-widest mb-4">{stat.label}</p>
+                <div className="w-12 h-[2px] bg-border group-hover:bg-primary mb-4 transition-colors duration-500" />
+                <p className="text-sm text-muted-foreground font-light leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -251,55 +252,64 @@ export default function Home() {
       </section>
 
       {/* Infraestrutura Section */}
-      <section id="infraestrutura" className="py-24 md:py-32 bg-card border-t border-border/30">
+      <section id="infraestrutura" className="py-24 md:py-32 bg-secondary/10 border-t border-border/30 relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         <div className="container mx-auto px-6 md:px-12">
-          <motion.div className="mb-16 md:mb-24 text-center max-w-3xl mx-auto" {...fadeInUp}>
+          <motion.div className="mb-16 md:mb-24 text-center max-w-4xl mx-auto" {...fadeInUp}>
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm mb-4 block flex items-center justify-center gap-2">
               <Headphones className="w-4 h-4" /> Base Operacional
             </span>
-            <h2 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-6">Infraestrutura & <span className="text-primary">Produção</span></h2>
-            <p className="text-muted-foreground text-lg font-light leading-relaxed">
-              D ROGER atua como responsável direto pelo núcleo de produção musical, gerenciando os recursos técnicos e a direção artística dos projetos associados à Ordem Sul.
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight mb-8">Infraestrutura & <span className="text-primary">Produção</span></h2>
+            <div className="w-16 h-1 bg-primary/50 mx-auto mb-8" />
+            <p className="text-muted-foreground text-lg md:text-xl font-light leading-relaxed">
+              Estrutura híbrida e capacidade de produção em múltiplos ambientes. D ROGER atua como responsável direto pelo núcleo de produção musical, gerenciando os recursos técnicos e a direção artística do coletivo.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <motion.div 
-              className="group relative overflow-hidden rounded-none bg-background border border-border/50" 
+              className="lg:col-span-7 relative" 
               {...fadeInUp}
             >
-              <div className="aspect-[16/9] overflow-hidden relative">
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700 z-10" />
-                <img src={studioImg} alt="Home Studio" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-                <div className="absolute bottom-6 left-6 z-20">
-                  <h3 className="text-2xl font-display font-bold mb-2 uppercase">Home Studio</h3>
-                  <span className="bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm">Núcleo Central</span>
+              <div className="aspect-[4/3] bg-black border border-border/50 p-2 md:p-4 rounded-xl shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
+                <div className="w-full h-full relative overflow-hidden rounded-lg bg-[#0a0a0a]">
+                  <img 
+                    src={studioImg} 
+                    alt="Home Studio" 
+                    className="w-full h-full object-contain filter contrast-125 saturate-110" 
+                  />
                 </div>
               </div>
-              <div className="p-8">
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  Base de operações central para captação, beatmaking e pós-produção. Ambiente otimizado para o desenvolvimento do catálogo musical próprio e produções de artistas parceiros.
-                </p>
-              </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-primary/5 blur-[80px] rounded-full pointer-events-none" />
             </motion.div>
 
             <motion.div 
-              className="group relative overflow-hidden rounded-none bg-background border border-border/50" 
+              className="lg:col-span-5 space-y-8" 
               {...fadeInUp} 
               transition={{ delay: 0.2 }}
             >
-              <div className="aspect-[16/9] overflow-hidden relative">
-                <div className="absolute inset-0 bg-primary/20 mix-blend-multiply z-10" />
-                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-700 z-10" />
-                <img src={heroImg} alt="Espaço Cultural" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-                <div className="absolute bottom-6 left-6 z-20">
-                  <h3 className="text-2xl font-display font-bold mb-2 uppercase">Espaço Cultural Parceiro</h3>
-                  <span className="bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-widest px-3 py-1 backdrop-blur-sm">Extensão Híbrida</span>
-                </div>
-              </div>
-              <div className="p-8">
+              <div className="p-8 border border-border/30 bg-background/50 backdrop-blur-sm relative group hover:border-primary/40 transition-colors">
+                <div className="absolute top-0 left-0 w-1 h-full bg-primary/80 transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+                <h3 className="text-2xl font-display font-bold mb-4 uppercase flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm">01</span>
+                  Home Studio
+                </h3>
                 <p className="text-muted-foreground font-light leading-relaxed">
-                  Infraestrutura de apoio onde são realizados os encontros presenciais, dinâmicas de grupo e parte das atividades formativas do workshop do Projeto Cultural Ordem Sul.
+                  Núcleo central de operações. Ambiente acusticamente tratado e otimizado para captação de vozes, beatmaking avançado, mixagem e masterização de projetos próprios e de artistas parceiros.
+                </p>
+              </div>
+
+              <div className="p-8 border border-border/30 bg-background/50 backdrop-blur-sm relative group hover:border-primary/40 transition-colors">
+                <div className="absolute top-0 left-0 w-1 h-full bg-primary/80 transform origin-top scale-y-0 group-hover:scale-y-100 transition-transform duration-500" />
+                <h3 className="text-2xl font-display font-bold mb-4 uppercase flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary text-sm">02</span>
+                  Espaço Cultural
+                </h3>
+                <p className="text-muted-foreground font-light leading-relaxed">
+                  Extensão operacional em parceria com instituição formalizada (CNPJ ativo). Espaço dedicado para atividades coletivas, workshops de produção musical e impacto cultural direto na comunidade da Zona Sul.
                 </p>
               </div>
             </motion.div>

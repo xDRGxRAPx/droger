@@ -377,16 +377,6 @@ export default function Home() {
                   </div>
                 </a>
 
-                <a href="https://youtube.com/@droger_oficial" target="_blank" rel="noopener noreferrer" className="flex items-center group">
-                  <div className="w-12 h-12 rounded-full border border-border/50 bg-secondary/20 flex items-center justify-center mr-4 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
-                    <Youtube className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">YouTube Oficial</p>
-                    <p className="text-foreground font-medium group-hover:text-primary transition-colors">Acessar Canal</p>
-                  </div>
-                </a>
-
                 <div className="flex items-center group">
                   <div className="w-12 h-12 rounded-full border border-border/50 bg-secondary/20 flex items-center justify-center mr-4">
                     <MapPin className="w-5 h-5 text-muted-foreground" />
@@ -405,7 +395,7 @@ export default function Home() {
                 <a href="https://instagram.com/droger_oficial" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-border bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-sm hover:shadow-[0_0_15px_rgba(200,150,50,0.4)]">
                   <Instagram className="w-6 h-6" />
                 </a>
-                <a href="#" className="w-14 h-14 rounded-full border border-border bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-sm hover:shadow-[0_0_15px_rgba(200,150,50,0.4)]">
+                <a href="http://www.youtube.com/@DRogerMC" target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full border border-border bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-sm hover:shadow-[0_0_15px_rgba(200,150,50,0.4)]">
                   <Youtube className="w-6 h-6" />
                 </a>
                 <a href="#" className="w-14 h-14 rounded-full border border-border bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all shadow-sm hover:shadow-[0_0_15px_rgba(200,150,50,0.4)]">

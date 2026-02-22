@@ -20,7 +20,7 @@ export default function LinkInBio() {
     { title: "Email Institucional", icon: Mail, url: "mailto:bboyrhoger@gmail.com", primary: false },
     { title: "Email Alternativo", icon: Mail, url: "mailto:realtraprn@gmail.com", primary: false },
     { title: "Instagram Oficial", icon: Instagram, url: "https://instagram.com/droger_oficial", primary: false },
-    { title: "Canal do YouTube", icon: Youtube, url: "https://youtube.com/@droger_oficial", primary: false },
+    { title: "Canal do YouTube", icon: Youtube, url: "http://www.youtube.com/@DRogerMC", primary: false },
   ];
 
   return (

@@ -272,12 +272,23 @@ export default function Home() {
               {...fadeInUp}
             >
               <div className="aspect-[4/3] bg-black border border-border/50 p-2 md:p-4 rounded-xl shadow-2xl relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none" />
-                <div className="w-full h-full relative overflow-hidden rounded-lg bg-[#0a0a0a]">
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20 pointer-events-none" />
+                
+                {/* Blurred background layer */}
+                <div className="absolute inset-0 z-0 overflow-hidden rounded-xl">
+                  <img 
+                    src={studioImg} 
+                    alt="" 
+                    className="w-full h-full object-cover filter blur-2xl scale-125 opacity-40 brightness-75" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
+                </div>
+
+                <div className="w-full h-full relative z-10 overflow-hidden rounded-lg bg-transparent">
                   <img 
                     src={studioImg} 
                     alt="Home Studio" 
-                    className="w-full h-full object-contain filter contrast-125 saturate-110" 
+                    className="w-full h-full object-contain filter contrast-110 saturate-110 drop-shadow-2xl" 
                   />
                 </div>
               </div>

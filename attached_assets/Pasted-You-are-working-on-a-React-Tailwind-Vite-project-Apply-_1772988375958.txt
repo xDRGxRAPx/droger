@@ -1,0 +1,280 @@
+You are working on a React + Tailwind + Vite project.
+
+Apply the following cinematic UI upgrades to transform the site into a premium artistic portfolio. Maintain the existing structure and do not break current components.
+
+Your task is to create new UI components and integrate them into the application.
+
+IMPORTANT:
+Do not delete existing code.
+Do not change the layout structure.
+Only add the enhancements described.
+
+---
+
+OBJECTIVE
+
+Add the following premium features:
+
+1. Cinematic custom cursor
+2. Apple-style text reveal animation
+3. Animated golden gradient text
+4. Artistic animated gallery
+5. Cinematic loader intro screen
+
+---
+
+STEP 1 — CREATE CURSOR COMPONENT
+
+Create a new file:
+
+client/src/components/Cursor.tsx
+
+Insert this code:
+
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+export default function Cursor() {
+const [position, setPosition] = useState({ x: 0, y: 0 });
+
+useEffect(() => {
+const move = (e: MouseEvent) => {
+setPosition({ x: e.clientX, y: e.clientY });
+};
+
+```
+window.addEventListener("mousemove", move);
+
+return () => window.removeEventListener("mousemove", move);
+```
+
+}, []);
+
+return (
+<motion.div
+className="fixed top-0 left-0 w-6 h-6 rounded-full pointer-events-none z-[9999]"
+animate={{
+x: position.x - 12,
+y: position.y - 12
+}}
+transition={{ type: "spring", stiffness: 500, damping: 28 }}
+style={{
+background: "radial-gradient(circle, rgba(255,215,0,0.8), transparent)",
+mixBlendMode: "screen"
+}}
+/>
+);
+}
+
+---
+
+STEP 2 — CREATE TEXT REVEAL COMPONENT
+
+Create:
+
+client/src/components/RevealText.tsx
+
+Insert:
+
+import { motion } from "framer-motion";
+
+export default function RevealText({ children }: any) {
+return (
+<motion.div
+initial={{ opacity: 0, y: 40 }}
+whileInView={{ opacity: 1, y: 0 }}
+transition={{ duration: 1.2 }}
+viewport={{ once: true }}
+>
+{children}
+</motion.div>
+);
+}
+
+---
+
+STEP 3 — CREATE ART GALLERY
+
+Create:
+
+client/src/components/ArtGallery.tsx
+
+Insert:
+
+import { motion } from "framer-motion";
+
+const images = [
+"/src/assets/studio-impacto.png",
+"/src/assets/studio-impacto.png",
+"/src/assets/studio-impacto.png"
+];
+
+export default function ArtGallery() {
+
+return (
+
+```
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+
+  {images.map((img, i) => (
+
+    <motion.img
+      key={i}
+      src={img}
+      className="rounded-xl object-cover w-full h-[320px]"
+      whileHover={{ scale: 1.08 }}
+      transition={{ duration: 0.6 }}
+    />
+
+  ))}
+
+</div>
+```
+
+);
+}
+
+---
+
+STEP 4 — CREATE CINEMATIC LOADER
+
+Create:
+
+client/src/components/Loader.tsx
+
+Insert:
+
+import { motion } from "framer-motion";
+
+export default function Loader() {
+
+return (
+
+```
+<motion.div
+  className="fixed inset-0 bg-black flex items-center justify-center z-[9999]"
+  initial={{ opacity: 1 }}
+  animate={{ opacity: 0 }}
+  transition={{ delay: 2, duration: 1 }}
+>
+
+  <motion.h1
+    className="text-4xl font-bold gold-glow"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+  >
+
+    D ROGER
+
+  </motion.h1>
+
+</motion.div>
+```
+
+);
+}
+
+---
+
+STEP 5 — ADD GOLD ANIMATED TEXT STYLE
+
+Open:
+
+client/src/index.css
+
+Add the following CSS at the end:
+
+.gold-glow {
+
+background: linear-gradient(
+90deg,
+#FFD700,
+#FFB700,
+#FFD700
+);
+
+background-size: 200%;
+
+animation: goldFlow 6s linear infinite;
+
+-webkit-background-clip: text;
+
+-webkit-text-fill-color: transparent;
+}
+
+@keyframes goldFlow {
+
+0% {
+background-position: 0%;
+}
+
+100% {
+background-position: 200%;
+}
+
+}
+
+---
+
+STEP 6 — INTEGRATE COMPONENTS INTO APP
+
+Open:
+
+client/src/App.tsx
+
+Add imports:
+
+import Cursor from "./components/Cursor";
+import Loader from "./components/Loader";
+
+Inside the main return render, place these at the top:
+
+<Cursor />
+<Loader />
+
+---
+
+STEP 7 — USE REVEAL TEXT IN HOME PAGE
+
+Open:
+
+client/src/pages/Home.tsx
+
+Add import:
+
+import RevealText from "@/components/RevealText";
+
+Wrap important headings like this:
+
+<RevealText>
+<h1 className="text-6xl font-bold gold-glow">
+D ROGER
+</h1>
+</RevealText>
+
+---
+
+STEP 8 — ADD ART GALLERY TO HOME PAGE
+
+Still in Home.tsx
+
+Import:
+
+import ArtGallery from "@/components/ArtGallery";
+
+Add the component near the end of the page:
+
+<ArtGallery />
+
+---
+
+FINAL CHECK
+
+Ensure:
+
+• project compiles without errors
+• all components render correctly
+• animations work smoothly
+• no existing layout was removed
+
+End of task.

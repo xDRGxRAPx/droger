@@ -3,6 +3,8 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import MobileNav from "@/components/layout/MobileNav";
+import RevealText from "@/components/RevealText";
+import ArtGallery from "@/components/ArtGallery";
 import {
   Instagram,
   Youtube,
@@ -135,14 +137,16 @@ export default function Home() {
             className="h-px bg-primary/70 mb-10 overflow-hidden"
           />
 
-          <motion.h1
-            className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[10rem] font-display font-bold uppercase tracking-[-0.04em] leading-[0.85] mb-7 text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/40"
-            initial={{ opacity: 0, y: 30, letterSpacing: "0.1em" }}
-            animate={{ opacity: 1, y: 0, letterSpacing: "-0.04em" }}
-            transition={{ duration: 1.2, delay: 0.3, ease: smooth }}
-          >
-            D ROGER
-          </motion.h1>
+          <RevealText>
+            <motion.h1
+              className="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[10rem] font-display font-bold uppercase tracking-[-0.04em] leading-[0.85] mb-7 text-transparent bg-clip-text bg-gradient-to-b from-white via-white/95 to-white/40"
+              initial={{ opacity: 0, y: 30, letterSpacing: "0.1em" }}
+              animate={{ opacity: 1, y: 0, letterSpacing: "-0.04em" }}
+              transition={{ duration: 1.2, delay: 0.3, ease: smooth }}
+            >
+              D ROGER
+            </motion.h1>
+          </RevealText>
 
           <motion.p
             className="text-sm sm:text-base md:text-lg text-primary/90 font-medium tracking-[0.3em] uppercase mb-5"
@@ -811,6 +815,17 @@ export default function Home() {
               </a>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* ━━━ ART GALLERY ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="py-20 sm:py-28 relative">
+        <div className="container px-6 md:px-12">
+          <motion.div {...fadeUp} className="mb-12">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight mb-6">Galeria Visual</h2>
+            <div className="w-16 h-1 bg-primary/50" />
+          </motion.div>
+          <ArtGallery />
         </div>
       </section>
 

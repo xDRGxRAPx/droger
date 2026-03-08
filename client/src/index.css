@@ -210,3 +210,26 @@ html {
   background: hsl(var(--primary));
   color: black;
 }
+
+/* GOLD ANIMATED TEXT STYLE */
+.gold-glow {
+  background: linear-gradient(
+    90deg,
+    #FFD700,
+    #FFB700,
+    #FFD700
+  );
+  background-size: 200%;
+  animation: goldFlow 6s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes goldFlow {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}

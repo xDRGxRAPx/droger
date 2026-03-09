@@ -7,6 +7,7 @@ import CinematicBackground from "./components/CinematicBackground";
 import Cursor from "./components/Cursor";
 import MouseLight from "./components/MouseLight";
 import Loader from "./components/Loader";
+import CinematicCursor from "./components/CinematicCursor";
 
 import Home from "@/pages/Home";
 import LinkInBio from "@/pages/LinkInBio";
@@ -29,6 +30,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <CinematicBackground />
+          <CinematicCursor />
           <Cursor />
           <MouseLight />
           <Loader />

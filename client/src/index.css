@@ -233,3 +233,14 @@ html {
     background-position: 200%;
   }
 }
+
+/* FILM GRAIN EFFECT */
+.film-grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 50;
+}

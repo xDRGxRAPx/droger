@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import MobileNav from "@/components/layout/MobileNav";
 import {
@@ -85,20 +83,6 @@ function SectionTag({ children }: { children: React.ReactNode }) {
    HOME
    ══════════════════════════════════════════════════════════ */
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      smoothWheel: true
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
       return (
         <div className="relative min-h-screen bg-background overflow-hidden">
 
@@ -111,14 +95,13 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-background/75 to-background z-10" />
             <motion.img
             
-              initial={{ scale: 1.25 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 6, ease: smooth }}
+              initial={{ scale: 1.15, filter: "brightness(0.65)" }}
+              animate={{ scale: 1, filter: "brightness(0.40)" }}
+              transition={{ duration: 4, ease: smooth }}
             
             src={heroImg}
             alt="D Roger"
-            className="w-full h-full object-cover object-top will-change-transform"
-            loading="eager"
+            className="w-full h-full object-cover object-top"
           /><div className="hero-light" />
           {/* Film Grain */}
           <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />{/* Golden Light */}
@@ -321,7 +304,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.15, ease: smooth }}
-                className="card-hover group relative p-8 sm:p-10 border border-border/20 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-700"
+                className="group relative p-8 sm:p-10 border border-border/20 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-700"
               >
                 {/* Top line hover */}
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -495,7 +478,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.15, ease: smooth }}
-                className="card-hover group relative p-8 sm:p-10 border border-border/20 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-700"
+                className="group relative p-8 sm:p-10 border border-border/20 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-700"
               >
                 <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 

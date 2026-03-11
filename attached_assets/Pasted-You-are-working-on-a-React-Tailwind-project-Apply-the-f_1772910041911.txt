@@ -1,0 +1,160 @@
+You are working on a React + Tailwind project.
+
+Apply the following UI improvements to make the site more cinematic and premium without breaking existing functionality.
+
+Follow the instructions carefully.
+
+---
+
+OBJECTIVE
+
+Implement:
+
+1. Cinematic smooth scroll
+2. Cinematic hero parallax
+3. Premium hover effect for cards
+4. Micro Apple-style UI details
+
+Do NOT remove existing layout or sections.
+
+---
+
+STEP 1 — INSTALL CINEMATIC SCROLL
+
+Install the Lenis smooth scroll library.
+
+Run:
+
+npm install lenis
+
+---
+
+STEP 2 — MODIFY home.tsx
+
+At the top of the file locate:
+
+import { motion } from "framer-motion";
+
+Add the following imports below it:
+
+import Lenis from "@studio-freight/lenis";
+import { useEffect } from "react";
+
+---
+
+STEP 3 — ADD LENIS SCROLL
+
+Inside the Home component.
+
+Locate:
+
+export default function Home() {
+
+Immediately after it add:
+
+useEffect(() => {
+const lenis = new Lenis({
+duration: 1.2,
+smoothWheel: true
+});
+
+function raf(time) {
+lenis.raf(time);
+requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+}, []);
+
+---
+
+STEP 4 — IMPROVE HERO IMAGE (CINEMATIC PARALLAX)
+
+Locate the hero <motion.img> element.
+
+Find animation props similar to:
+
+initial={{ scale: 1.15, filter: "brightness(0.65)" }}
+animate={{ scale: 1, filter: "brightness(0.40)" }}
+transition={{ duration: 4 }}
+
+Replace them with:
+
+initial={{ scale: 1.25 }}
+animate={{ scale: 1 }}
+transition={{ duration: 6 }}
+
+Also improve performance by modifying the image className.
+
+Locate:
+
+className="w-full h-full object-cover object-top"
+
+Replace with:
+
+className="w-full h-full object-cover object-top will-change-transform"
+loading="eager"
+
+---
+
+STEP 5 — ADD CINEMATIC CARD HOVER
+
+Open:
+
+index.css
+
+Add the following CSS at the end of the file:
+
+.card-hover {
+transition: all 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+
+.card-hover:hover {
+transform: translateY(-8px) scale(1.02);
+box-shadow: 0 25px 80px rgba(0,0,0,0.5);
+}
+
+---
+
+STEP 6 — APPLY CARD HOVER TO CARDS
+
+Locate card containers with className similar to:
+
+className="group relative p-8 sm:p-10 border border-border/20 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-700"
+
+Add the class "card-hover" at the beginning.
+
+Example:
+
+className="card-hover group relative p-8 sm:p-10 border border-border/20 bg-card/30 backdrop-blur-sm hover:bg-card/50 transition-all duration-700"
+
+Apply this to all card components.
+
+---
+
+STEP 7 — APPLE STYLE MICRO UI DETAILS
+
+Still inside index.css add:
+
+html {
+scroll-behavior: smooth;
+}
+
+::selection {
+background: hsl(var(--primary));
+color: black;
+}
+
+---
+
+IMPORTANT
+
+Do not remove existing components.
+Do not change layout structure.
+Only apply the enhancements above.
+
+Ensure the project compiles successfully after changes.
+
+---
+
+END

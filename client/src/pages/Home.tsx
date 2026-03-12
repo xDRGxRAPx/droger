@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/layout/Navbar";
@@ -85,6 +85,12 @@ function SectionTag({ children }: { children: React.ReactNode }) {
    HOME
    ══════════════════════════════════════════════════════════ */
 export default function Home() {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const smoothX = useSpring(mouseX, { damping: 50, stiffness: 400, mass: 0.5 });
+  const smoothY = useSpring(mouseY, { damping: 50, stiffness: 400, mass: 0.5 });
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -97,10 +103,45 @@ export default function Home() {
     }
 
     requestAnimationFrame(raf);
-  }, []);
+
+    // Mouse and Touch glow tracking
+    const handleMove = (e: MouseEvent | TouchEvent) => {
+      let clientX, clientY;
+      if ('touches' in e) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = (e as MouseEvent).clientX;
+        clientY = (e as MouseEvent).clientY;
+      }
+      mouseX.set(clientX);
+      mouseY.set(clientY);
+    };
+
+    window.addEventListener("mousemove", handleMove, { passive: true });
+    window.addEventListener("touchmove", handleMove, { passive: true });
+
+    return () => {
+      lenis.destroy();
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("touchmove", handleMove);
+    };
+  }, [mouseX, mouseY]);
 
       return (
         <div className="relative min-h-screen bg-background overflow-hidden">
+          {/* Custom Cursor Glow */}
+          <motion.div
+            className="pointer-events-none fixed z-50 w-[400px] h-[400px] rounded-full blur-[100px] opacity-20 transition-opacity duration-300"
+            style={{
+              x: smoothX,
+              y: smoothY,
+              translateX: "-50%",
+              translateY: "-50%",
+              background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)"
+            }}
+          />
+          
       <Navbar />
 
       {/* ━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}

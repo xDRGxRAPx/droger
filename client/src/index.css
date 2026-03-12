@@ -140,7 +140,8 @@
 
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(200, 150, 50, 0.15);
+  border-color: rgba(200, 150, 50, 0.3);
 }
 
 /* APPLE STYLE MICRO UI DETAILS */

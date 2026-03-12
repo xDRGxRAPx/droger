@@ -85,8 +85,6 @@ function SectionTag({ children }: { children: React.ReactNode }) {
    HOME
    ══════════════════════════════════════════════════════════ */
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -99,28 +97,10 @@ export default function Home() {
     }
 
     requestAnimationFrame(raf);
-    
-    // Mouse move effect
-    const updateMouse = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
-    window.addEventListener("mousemove", updateMouse);
-    return () => window.removeEventListener("mousemove", updateMouse);
   }, []);
 
       return (
         <div className="relative min-h-screen bg-background overflow-hidden">
-          {/* Custom Cursor Glow */}
-          <div 
-            className="pointer-events-none fixed w-[400px] h-[400px] rounded-full blur-[160px] opacity-20 bg-primary z-0 transition-opacity duration-300"
-            style={{ 
-              left: `${mousePosition.x - 200}px`, 
-              top: `${mousePosition.y - 200}px` 
-            }}
-          />
-
-          <div className="film-grain" />
       <Navbar />
 
       {/* ━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -137,12 +117,7 @@ export default function Home() {
             alt="D Roger"
             className="w-full h-full object-cover object-top will-change-transform"
             loading="eager"
-          /><div className="hero-light" />
-          {/* Film Grain */}
-          <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />{/* Golden Light */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -top-40 left-1/2 w-[900px] h-[900px] bg-primary/20 blur-[180px]" />
-          </div>
+          />
         </div>
 
         <div className="container relative z-20 px-6 md:px-12 text-center flex flex-col items-center">

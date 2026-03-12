@@ -119,52 +119,6 @@
   pointer-events: none;
   z-index: -1;
 }
-/* FILM GRAIN CINEMATOGRÁFICO */
-
-.film-grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  z-index: 1;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-}/* ───────────────────────────── */
-/* CINEMATIC EFFECTS */
-/* ───────────────────────────── */
-
-/* FILM GRAIN MELHORADO */
-.film-grain {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  z-index: 1;
-  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  animation: grainMove 8s steps(10) infinite;
-}
-
-@keyframes grainMove {
-  0%,100% { transform:translate(0,0) }
-  10% { transform:translate(-5%,-10%) }
-  20% { transform:translate(-15%,5%) }
-  30% { transform:translate(7%,-25%) }
-  40% { transform:translate(-5%,25%) }
-  50% { transform:translate(-15%,10%) }
-  60% { transform:translate(15%,0%) }
-  70% { transform:translate(0%,15%) }
-  80% { transform:translate(3%,35%) }
-  90% { transform:translate(-10%,10%) }
-}
-
-
-/* LUZ DOURADA CINEMATOGRÁFICA */
-.hero-light {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.25), transparent 60%);
-  filter: blur(120px);
-}
 
 
 /* SCROLL REVEAL CINEMÁTICO */

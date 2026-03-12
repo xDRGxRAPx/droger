@@ -17,10 +17,9 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Institucional", href: "#bio", icon: User },
-    { name: "Impacto", href: "#impacto", icon: BarChart3 },
-    { name: "Projeto Cultural", href: "#projeto-cultural", icon: Users },
-    { name: "Infraestrutura", href: "#infraestrutura", icon: Building2 },
+    { name: "Início", href: "#inicio", icon: User },
+    { name: "Bio", href: "#bio", icon: User },
+    { name: "Projetos", href: "#projetos", icon: Users },
     { name: "Contato", href: "#contato", icon: Mail },
   ];
 

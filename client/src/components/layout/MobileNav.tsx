@@ -19,7 +19,7 @@ export default function MobileNav() {
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-t border-border/50 pb-safe pt-2 px-6 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
       <div className="flex items-center justify-between pb-2">
         <button 
-          onClick={() => handleNavClick("#top")}
+          onClick={() => handleNavClick("#inicio")}
           className="flex flex-col items-center p-2 text-muted-foreground hover:text-primary transition-colors"
         >
           <Home className="w-5 h-5 mb-1" />
@@ -41,19 +41,19 @@ export default function MobileNav() {
         </Link>
 
         <button 
-          onClick={() => handleNavClick("#projeto-cultural")}
+          onClick={() => handleNavClick("#projetos")}
           className="flex flex-col items-center p-2 text-muted-foreground hover:text-primary transition-colors"
         >
           <Users className="w-5 h-5 mb-1" />
-          <span className="text-[9px] font-medium uppercase tracking-wider">Projeto</span>
+          <span className="text-[9px] font-medium uppercase tracking-wider">Projetos</span>
         </button>
 
         <button 
-          onClick={() => handleNavClick("#infraestrutura")}
+          onClick={() => handleNavClick("#contato")}
           className="flex flex-col items-center p-2 text-muted-foreground hover:text-primary transition-colors"
         >
           <Building2 className="w-5 h-5 mb-1" />
-          <span className="text-[9px] font-medium uppercase tracking-wider">Infra</span>
+          <span className="text-[9px] font-medium uppercase tracking-wider">Contato</span>
         </button>
       </div>
     </div>

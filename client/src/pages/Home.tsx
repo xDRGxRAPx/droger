@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "@/components/layout/Navbar";
 import MobileNav from "@/components/layout/MobileNav";
 import {
@@ -85,6 +85,8 @@ function SectionTag({ children }: { children: React.ReactNode }) {
    HOME
    ══════════════════════════════════════════════════════════ */
 export default function Home() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -97,16 +99,32 @@ export default function Home() {
     }
 
     requestAnimationFrame(raf);
+    
+    // Mouse move effect
+    const updateMouse = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+    
+    window.addEventListener("mousemove", updateMouse);
+    return () => window.removeEventListener("mousemove", updateMouse);
   }, []);
 
       return (
         <div className="relative min-h-screen bg-background overflow-hidden">
+          {/* Custom Cursor Glow */}
+          <div 
+            className="pointer-events-none fixed w-[400px] h-[400px] rounded-full blur-[160px] opacity-20 bg-primary z-0 transition-opacity duration-300"
+            style={{ 
+              left: `${mousePosition.x - 200}px`, 
+              top: `${mousePosition.y - 200}px` 
+            }}
+          />
 
           <div className="film-grain" />
       <Navbar />
 
       {/* ━━━ HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
+      <section id="inicio" className="relative h-[100dvh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-background/75 to-background z-10" />
             <motion.img
@@ -123,7 +141,7 @@ export default function Home() {
           {/* Film Grain */}
           <div className="absolute inset-0 opacity-[0.08] mix-blend-overlay pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />{/* Golden Light */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -top-40 left-1/2 w-[900px] h-[900px] bg-primary/20 blur-[180px] animate-pulse" />
+            <div className="absolute -top-40 left-1/2 w-[900px] h-[900px] bg-primary/20 blur-[180px]" />
           </div>
         </div>
 
@@ -274,7 +292,7 @@ export default function Home() {
       <Divider />
 
       {/* ━━━ ORDEM SUL ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="py-24 sm:py-28 md:py-36 relative">
+      <section id="projetos" className="py-24 sm:py-28 md:py-36 relative">
         <div className="container mx-auto px-6 md:px-12 lg:px-16">
           <motion.div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20" {...fadeUp}>
             <SectionTag>Plataforma Cultural</SectionTag>

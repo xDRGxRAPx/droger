@@ -164,18 +164,6 @@
   pointer-events: none;
   background: radial-gradient(circle at 50% 0%, rgba(212,175,55,0.25), transparent 60%);
   filter: blur(120px);
-  animation: heroGlow 8s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow {
-  from {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
 }
 
 

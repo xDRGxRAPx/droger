@@ -644,9 +644,9 @@ export default function Home() {
 
               {[
                 { type: "image", src: drgPerfil, title: "DRG PERFIL", color: "from-green-900/80" },
-                { type: "video", src: nesseMundo, title: "NESSE MUNDO NÃO HÁ", color: "from-red-900/80" },
-                { type: "video", src: hipocrisia, title: "HIPOCRISIA", color: "from-blue-900/80" },
-                { type: "video", src: nordesteTopo, title: "NORDESTE É O TOPO", color: "from-yellow-700/80" },
+                { type: "video", src: nesseMundo, poster: studioImg, title: "NESSE MUNDO NÃO HÁ", color: "from-red-900/80" },
+                { type: "video", src: hipocrisia, poster: portraitImg, title: "HIPOCRISIA", color: "from-blue-900/80" },
+                { type: "video", src: nordesteTopo, poster: studioImpacto, title: "NORDESTE É O TOPO", color: "from-yellow-700/80" },
                 { type: "image", src: ordemSul, title: "ORDEM SUL", color: "from-pink-900/80" },
                 { type: "image", src: capaOrdem, title: "CAPA ORDEM SUL 13", color: "from-black/90" },
               ].map((item, i) => (
@@ -657,7 +657,34 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   viewport={{ once: true }}
-                  className="relative aspect-square overflow-hidden group rounded-xl"
+                  className="relative aspect-square overflow-hidden group rounded-xl cursor-pointer"
+                  onClick={() => setViewer({ src: item.src as string, type: item.type as "image" | "video" })}
+                  onMouseEnter={(e) => {
+                    if (item.type === "video") {
+                      const v = e.currentTarget.querySelector("video");
+                      if (v) {
+                        v.preload = "auto";
+                        v.play().catch(() => {});
+                      }
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (item.type === "video") {
+                      const v = e.currentTarget.querySelector("video");
+                      if (v) {
+                        v.pause();
+                      }
+                    }
+                  }}
+                  onTouchStart={(e) => {
+                    if (item.type === "video") {
+                      const v = e.currentTarget.querySelector("video");
+                      if (v && v.paused) {
+                        v.preload = "auto";
+                        v.play().catch(() => {});
+                      }
+                    }
+                  }}
                 >
 
                   {/* MEDIA */}
@@ -673,7 +700,7 @@ export default function Home() {
                   ) : (
                     <div className="relative w-full h-full group-hover:scale-110 transition duration-700 ease-out">
                       {/* Video Player overlay */}
-                      <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
+                      <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100 pointer-events-none">
                         <div className="w-16 h-16 rounded-full bg-primary/20 backdrop-blur-md border border-primary/50 flex items-center justify-center text-primary shadow-[0_0_30px_rgba(200,150,50,0.4)]">
                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8 5V19L19 12L8 5Z" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -683,52 +710,31 @@ export default function Home() {
                       
                       <video
                         src={item.src}
+                        poster={item.poster}
                         muted
                         loop
                         playsInline
                         preload="metadata"
-
-                        onMouseEnter={(e) => {
-                          const v = e.currentTarget;
-                          v.preload = "auto";
-                          v.play().catch(() => {});
-                        }}
-
-                        onMouseLeave={(e) => {
-                          e.currentTarget.pause();
-                        }}
-
-                        onTouchStart={(e) => {
-                          const v = e.currentTarget;
-                          v.preload = "auto";
-                          if (v.paused) {
-                            v.play().catch(() => {});
-                          }
-                        }}
-
-                        className="w-full h-full object-cover contrast-110 brightness-90"
-                        onClick={() =>
-                          setViewer({ src: item.src as string, type: "video" })
-                        }
+                        className="w-full h-full object-cover contrast-110 brightness-90 pointer-events-none"
                       />
                     </div>
                   )}
 
                   {/* OVERLAY CINEMÁTICO */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${item.color} via-black/30 to-transparent`} />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${item.color} via-black/30 to-transparent pointer-events-none`} />
 
                   {/* GRAIN EFFECT */}
                   <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none bg-[url('/grain.png')]" />
 
                   {/* TEXTO */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10">
+                  <div className="absolute bottom-4 left-4 right-4 z-10 pointer-events-none">
                     <p className="text-white text-sm font-semibold tracking-widest uppercase">
                       {item.title}
                     </p>
                   </div>
 
                   {/* HOVER DARK */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500" />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none" />
 
                 </motion.div>
               ))}

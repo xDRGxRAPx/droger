@@ -16,7 +16,7 @@ export default function MobileNav() {
   };
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-lg border-t border-border/50 pb-safe pt-2 px-6 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+    <div className="md:hidden fixed bottom-0 left-0 right-0 z-[9000] bg-background/90 backdrop-blur-lg border-t border-border/50 pb-safe pt-2 px-6 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
       <div className="flex items-center justify-between pb-2">
         <button 
           onClick={() => handleNavClick("#inicio")}
